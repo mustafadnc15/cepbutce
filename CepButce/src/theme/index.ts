@@ -27,5 +27,5 @@ export function buildTheme(isDark: boolean): Theme {
   };
 }
 
-// ThemeProvider + useTheme + ThemePreference are re-exported from
-// ThemeProvider.tsx after it's created in Task 16.
+export { useTheme, ThemeProvider } from './ThemeProvider';
+export type { ThemePreference } from './ThemeProvider';
