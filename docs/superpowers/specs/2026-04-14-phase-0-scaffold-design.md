@@ -19,7 +19,7 @@ Execute Phase 0 of the CepBütçe build: scaffold a bare React Native CLI projec
 
 ### Layout
 
-Scaffold into `budget-app/CepButce/` (nested). Spec + CLAUDE.md + design docs stay at repo root.
+Scaffold lives at the `budget-app/` repo root, alongside the spec, CLAUDE.md, and design docs. (Originally scaffolded into a nested `CepButce/` subdirectory, then flattened to root in commit `6c5b4d1` (or whichever the move commit ends up being). Path references below were updated post-move.)
 
 ### Execution cadence
 
@@ -37,7 +37,7 @@ User runs simulators; implementation verifies non-simulator signals (install exi
 `npx @react-native-community/cli@latest init CepButce --skip-git-init`
 
 - Drop the `--template react-native-template-typescript` flag from the original spec — that template is archived; current CLI emits TypeScript by default on RN 0.76+.
-- `--skip-git-init` prevents a nested `.git` inside `CepButce/`.
+- `--skip-git-init` prevents a nested `.git` inside the scaffolded directory.
 
 ### New Architecture
 
@@ -111,11 +111,11 @@ On mount (`useEffect`):
 | Vector icon font doesn't copy correctly | Verify via `react-native.config.js` asset linking + `npx react-native-asset`. User confirms by seeing a Feather icon render on the shell (I'll add one to the placeholder). |
 | op-sqlite / Reanimated / MMKV New Arch incompatibility | All three are New Arch compatible at their current major versions. If install surfaces a peer conflict, report rather than downgrade silently. |
 | Theme flash on launch | MMKV sync read at module scope avoids the flash. |
-| Scaffolding into a non-empty parent | Working dir `budget-app/` is non-empty, but `init CepButce` creates a child dir — no conflict. |
+| Scaffolding into a non-empty parent | Working dir `budget-app/` is non-empty, but `init CepButce` creates a child dir — no conflict at scaffold time. (Files are moved up to the root in a later restructure.) |
 
 ## Definition of done
 
-- **Checkpoint 1 done when:** `CepButce/` exists, `npm install` exits clean, `pod install` exits clean, Metro starts without errors, and the user has confirmed the stock RN welcome screen appears on both iOS simulator and Android emulator.
+- **Checkpoint 1 done when:** the scaffolded RN project exists at the repo root, `npm install` exits clean, `pod install` exits clean, Metro starts without errors, and the user has confirmed the stock RN welcome screen appears on both iOS simulator and Android emulator.
 - **Checkpoint 2 done when:** all files listed in the spec's Step 6 folder structure exist with real content (except deferrals above), `App.tsx` uses the full provider stack, the shell renders a theme-aware blank view showing "CepBütçe" whose background color matches the active theme (switching the OS appearance and relaunching flips light/dark, since theme default is `'system'`), DB migrations run on first launch, and the `categories` table contains the 12 seeded rows (verifiable via a SELECT count logged once at boot).
 
 ## Out of scope for later phases
