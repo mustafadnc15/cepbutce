@@ -30,7 +30,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     try {
       const db = getDB();
       const result = db.executeSync(`SELECT * FROM transactions ORDER BY date DESC;`);
-      const rows = (result.rows ?? []) as Transaction[];
+      const rows = (result.rows ?? []) as unknown as Transaction[];
       set({ transactions: rows, loading: false });
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : String(e) });

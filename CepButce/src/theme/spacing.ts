@@ -1,4 +1,3 @@
-// @ts-expect-error - tokens.js is untyped CommonJS
 import tokens from './tokens';
 
 export const spacing = tokens.spacing as {

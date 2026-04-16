@@ -1,4 +1,3 @@
-// @ts-expect-error - tokens.js is untyped CommonJS
 import tokens from './tokens';
 import type { TextStyle } from 'react-native';
 

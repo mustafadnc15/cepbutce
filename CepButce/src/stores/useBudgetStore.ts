@@ -28,7 +28,7 @@ export const useBudgetStore = create<BudgetState>((set, get) => ({
     try {
       const db = getDB();
       const result = db.executeSync(`SELECT * FROM budgets;`);
-      const rows = (result.rows ?? []) as Budget[];
+      const rows = (result.rows ?? []) as unknown as Budget[];
       set({ budgets: rows, loading: false });
     } catch (e) {
       set({ loading: false });
