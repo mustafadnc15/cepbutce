@@ -17,14 +17,6 @@ end
 target 'CepButce' do
   config = use_native_modules!
 
-  # react-native-worklets does not ship a react-native.config.js so autolinking
-  # skips it, but RNReanimated v4 depends on RNWorklets. Add it manually.
-  pod 'RNWorklets', :path => '../node_modules/react-native-worklets'
-
-  # react-native-nitro-modules is a transitive dep (not in package.json directly)
-  # so autolinking skips it, but NitroMmkv (react-native-mmkv v4) depends on it.
-  pod 'NitroModules', :path => '../node_modules/react-native-nitro-modules'
-
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
