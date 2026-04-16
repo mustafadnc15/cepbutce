@@ -165,11 +165,12 @@ git commit -m "Install React Navigation + native peers"
 
 ```bash
 cd /Users/mustafadinc/studio-apps/budget-app/CepButce
-npm install react-native-reanimated react-native-gesture-handler @gorhom/bottom-sheet react-native-svg react-native-vector-icons react-native-fast-image react-native-linear-gradient react-native-haptic-feedback react-native-toast-message react-native-skeleton-placeholder lottie-react-native @react-native-community/blur
-npm install --save-dev @types/react-native-vector-icons
+npm install react-native-reanimated react-native-gesture-handler @gorhom/bottom-sheet react-native-svg @react-native-vector-icons/feather @d11/react-native-fast-image react-native-linear-gradient react-native-haptic-feedback react-native-toast-message react-native-skeleton-placeholder lottie-react-native @react-native-community/blur
 ```
 
 Expected: installs complete. `@gorhom/bottom-sheet` v5+ is the right version for Reanimated v3+.
+
+**Package choices:** We use `@react-native-vector-icons/feather` (the v11+ per-family package) instead of the deprecated unified `react-native-vector-icons`. We use `@d11/react-native-fast-image` (the maintained React 19 fork) instead of the unmaintained `react-native-fast-image`. Both replacements ship their own types; no `@types/...` install needed.
 
 - [ ] **Step 2: Commit**
 
@@ -191,10 +192,13 @@ git commit -m "Install UI and animation native modules"
 ```bash
 cd /Users/mustafadinc/studio-apps/budget-app/CepButce
 npm install nativewind@^4.0.0
-npm install --save-dev tailwindcss@^3.4.0 prettier-plugin-tailwindcss
+npm install --save-dev tailwindcss@^3.4.0
 ```
 
-Note: `react-native-reanimated` (NativeWind v4 peer dep) was already installed in Task 4. Tailwind v3 is required by NativeWind v4 (Tailwind v4 is not supported).
+Notes:
+- `react-native-reanimated` (NativeWind v4 peer dep) was already installed in Task 4.
+- Tailwind v3 is required by NativeWind v4 (Tailwind v4 is not supported).
+- `prettier-plugin-tailwindcss` was originally listed but conflicts with the prettier v2 that RN 0.85 ships with. The plugin is purely a class-sorter for editor formatting — not functional. Add it later if/when the project upgrades prettier.
 
 - [ ] **Step 2: Commit**
 
@@ -385,66 +389,31 @@ git commit -m "Add minimal tailwind.config.js (tokens wired in Task 13)"
 
 ---
 
-### Task 11: Link vector-icons (Feather font)
+### Task 11: Verify Feather icon font auto-links
 
-**Files:**
-- Create: `CepButce/react-native.config.js`
-- Modify: `CepButce/android/app/build.gradle`
+**Note:** The original plan used the deprecated `react-native-vector-icons` v10 unified package, which required manual font asset linking. We've swapped to `@react-native-vector-icons/feather` (the v11+ per-family package), which auto-links its bundled font on both platforms via the standard React Native autolinking pipeline. No manual `react-native.config.js`, no Android `fonts.gradle` apply, no `npx react-native-asset` needed — it all happens at `pod install` (iOS) and Gradle sync (Android).
 
-- [ ] **Step 1: Create react-native.config.js for asset linking**
+**Files:** none modified. This task is verification-only.
 
-File: `CepButce/react-native.config.js`
-
-```javascript
-module.exports = {
-  project: {
-    ios: {},
-    android: {},
-  },
-  assets: ['./node_modules/react-native-vector-icons/Fonts'],
-};
-```
-
-- [ ] **Step 2: Append vector-icons fonts.gradle to Android app/build.gradle**
-
-Read the file first:
+- [ ] **Step 1: Confirm the package shipped a font file**
 
 ```bash
-tail -5 CepButce/android/app/build.gradle
+ls /Users/mustafadinc/studio-apps/budget-app/CepButce/node_modules/@react-native-vector-icons/feather/fonts/
 ```
 
-Then append (if not already present):
+Expected: a `.ttf` file (Feather.ttf or similar). If missing, the package is broken — abort.
 
-```groovy
-apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
-```
-
-Use Edit tool to add the line at the end of `CepButce/android/app/build.gradle`.
-
-- [ ] **Step 3: Run asset linker to copy iOS fonts**
+- [ ] **Step 2: Confirm the package self-declares native asset linking**
 
 ```bash
-cd /Users/mustafadinc/studio-apps/budget-app/CepButce
-npx react-native-asset
+cat /Users/mustafadinc/studio-apps/budget-app/CepButce/node_modules/@react-native-vector-icons/feather/react-native.config.js
 ```
 
-Expected: copies `Feather.ttf` (and other font files) into `ios/CepButce/` and updates `Info.plist`'s `UIAppFonts` array.
+Expected: a config object exporting `dependency.assets` pointing at the fonts directory. If absent, fall back to manual linking — but per `@react-native-vector-icons/*` docs this should be automatic.
 
-- [ ] **Step 4: Verify iOS Info.plist was updated**
+- [ ] **Step 3: No commit needed**
 
-```bash
-grep -A 20 UIAppFonts CepButce/ios/CepButce/Info.plist | head -30
-```
-
-Expected: `<key>UIAppFonts</key>` block lists `Feather.ttf` among others.
-
-- [ ] **Step 5: Commit**
-
-```bash
-cd /Users/mustafadinc/studio-apps/budget-app
-git add CepButce/react-native.config.js CepButce/android/app/build.gradle CepButce/ios
-git commit -m "Link react-native-vector-icons Feather font for iOS and Android"
-```
+This task touches no files. Skip the commit step. If verification fails in Step 1 or Step 2, escalate before continuing.
 
 ---
 
@@ -2123,7 +2092,7 @@ File: `CepButce/src/components/ui/IconBox.tsx`
 ```typescript
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@react-native-vector-icons/feather';
 import { useTheme } from '../../theme';
 
 interface IconBoxProps {
@@ -2313,7 +2282,7 @@ import Animated, {
   withTiming,
   interpolateColor,
 } from 'react-native-reanimated';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@react-native-vector-icons/feather';
 import { useTheme } from '../../theme';
 
 interface InputProps {
@@ -2444,7 +2413,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@react-native-vector-icons/feather';
 import HapticFeedback from 'react-native-haptic-feedback';
 import { useTheme } from '../../theme';
 
@@ -2656,7 +2625,7 @@ File: `CepButce/src/components/ui/EmptyState.tsx`
 ```typescript
 import React from 'react';
 import { Text, View, ViewStyle } from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from '@react-native-vector-icons/feather';
 import { useTheme } from '../../theme';
 import { Button } from './Button';
 
