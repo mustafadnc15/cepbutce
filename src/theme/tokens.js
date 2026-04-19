@@ -2,6 +2,19 @@
 // src/theme/*.ts imports) and tailwind.config.js. CommonJS so Node-side
 // Tailwind config can require() it without transpilation.
 
+// Focus hero — always-dark slab shared by both light and dark themes. The
+// hero is the visual anchor of the Focus identity: inverting it in dark mode
+// would dissolve that anchor, so the same hex is used in both palettes.
+const heroPalette = {
+  bg: '#0E1A12',
+  fg: '#FFFFFF',
+  fgMuted: 'rgba(255,255,255,0.65)',
+  fgDim: 'rgba(255,255,255,0.5)',
+  fgFaint: 'rgba(255,255,255,0.12)',
+  surface: 'rgba(255,255,255,0.06)',
+  surfaceBorder: 'rgba(255,255,255,0.1)',
+};
+
 const colors = {
   light: {
     brand: {
@@ -30,6 +43,7 @@ const colors = {
       income: '#00C864',
       expense: '#FF3B30',
     },
+    hero: heroPalette,
   },
   dark: {
     brand: {
@@ -58,6 +72,7 @@ const colors = {
       income: '#00C864',
       expense: '#FF3B30',
     },
+    hero: heroPalette,
   },
 };
 
@@ -83,6 +98,8 @@ const radius = {
   card: 16,
   lg: 20,
   header: 28,
+  hero: 28,
+  group: 18,
   full: 9999,
 };
 

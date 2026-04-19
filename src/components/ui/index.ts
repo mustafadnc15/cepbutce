@@ -7,3 +7,6 @@ export { Button } from './Button';
 export { SectionHeader } from './SectionHeader';
 export { Chip } from './Chip';
 export { EmptyState } from './EmptyState';
+export { HeroSlab } from './HeroSlab';
+export { SegmentedTrack } from './SegmentedTrack';
+export { GroupedCard } from './GroupedCard';

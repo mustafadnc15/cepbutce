@@ -33,6 +33,12 @@
 		<key>NSAllowsLocalNetworking</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>CepBütçe fiş ve fatura taramak için kameraya erişmeye ihtiyaç duyar.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Galerinizden fiş veya fatura fotoğrafı seçebilmek için izninize ihtiyacımız var.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Fiş görüntülerini galerinize kaydedebilmek için izninize ihtiyacımız var.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>RCTNewArchEnabled</key>

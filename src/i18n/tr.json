@@ -2,5 +2,381 @@
   "app": {
     "name": "CepBütçe",
     "tagline": "Cebindeki bütçe asistanı"
+  },
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "done": "Tamam",
+    "close": "Kapat",
+    "back": "Geri",
+    "continue": "Devam",
+    "confirm": "Onayla",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "search": "Ara",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "retry": "Tekrar Dene",
+    "today": "Bugün",
+    "yesterday": "Dün",
+    "thisMonth": "Bu Ay",
+    "lastMonth": "Geçen Ay",
+    "last3Months": "Son 3 Ay",
+    "thisYear": "Bu Yıl",
+    "allTime": "Tüm Zamanlar",
+    "custom": "Özel"
+  },
+  "nav": {
+    "dashboard": "Anasayfa",
+    "transactions": "İşlemler",
+    "subscriptions": "Abonelikler",
+    "profile": "Profil"
+  },
+  "dashboard": {
+    "title": "Anasayfa",
+    "greeting": "Merhaba",
+    "monthlyBudget": "Aylık Bütçe",
+    "spent": "Harcanan",
+    "remaining": "Kalan",
+    "income": "Gelir",
+    "expense": "Gider",
+    "net": "Net",
+    "recentTransactions": "Son İşlemler",
+    "viewAll": "Tümünü Gör",
+    "upcomingRenewals": "Yaklaşan Yenilemeler",
+    "topCategories": "En Çok Harcanan Kategoriler"
+  },
+  "transactions": {
+    "title": "İşlemler",
+    "addExpense": "Harcama Ekle",
+    "addIncome": "Gelir Ekle",
+    "editTransaction": "İşlemi Düzenle",
+    "amount": "Tutar",
+    "category": "Kategori",
+    "date": "Tarih",
+    "note": "Not",
+    "receipt": "Fiş",
+    "addReceipt": "Fiş Ekle",
+    "type": "Tür",
+    "expenseTab": "Gider",
+    "incomeTab": "Gelir",
+    "empty": {
+      "title": "Henüz işlem yok",
+      "subtitle": "İlk harcamanı eklemek için + butonuna dokun"
+    },
+    "deleteConfirm": {
+      "title": "İşlemi Sil",
+      "message": "Bu işlemi silmek istediğinize emin misiniz?"
+    }
+  },
+  "subscriptions": {
+    "title": "Abonelikler",
+    "addSubscription": "Abonelik Ekle",
+    "editSubscription": "Aboneliği Düzenle",
+    "name": "Ad",
+    "amount": "Tutar",
+    "billingCycle": "Yenileme Sıklığı",
+    "nextRenewal": "Sonraki Yenileme",
+    "category": "Kategori",
+    "color": "Renk",
+    "reminder": "Hatırlatıcı",
+    "autoCreate": "Otomatik İşlem Oluştur",
+    "autoCreateHint": "Yenileme günü geldiğinde otomatik harcama ekle",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "monthly": "Aylık",
+    "weekly": "Haftalık",
+    "quarterly": "3 Aylık",
+    "yearly": "Yıllık",
+    "limitReached": {
+      "title": "Abonelik Limiti",
+      "message": "Ücretsiz planda en fazla 5 aktif aboneliğin olabilir. Sınırsız için Premium'a geç.",
+      "cta": "Premium'a Geç"
+    },
+    "empty": {
+      "title": "Henüz abonelik yok",
+      "subtitle": "İlk aboneliğini eklemek için + butonuna dokun"
+    }
+  },
+  "categories": {
+    "cat_food": "Yemek & İçecek",
+    "cat_transport": "Ulaşım",
+    "cat_shopping": "Alışveriş",
+    "cat_bills": "Faturalar",
+    "cat_health": "Sağlık",
+    "cat_entertainment": "Eğlence",
+    "cat_education": "Eğitim",
+    "cat_housing": "Konut & Kira",
+    "cat_other_expense": "Diğer",
+    "cat_salary": "Maaş",
+    "cat_freelance": "Freelance",
+    "cat_other_income": "Diğer Gelir"
+  },
+  "profile": {
+    "title": "Profil",
+    "loggedOut": "Giriş yapmadın",
+    "signIn": "Giriş Yap",
+    "signOut": "Çıkış Yap",
+    "editProfile": "Profili Düzenle",
+    "sections": {
+      "account": "Hesap",
+      "preferences": "Tercihler",
+      "data": "Veri",
+      "about": "Hakkında",
+      "budget": "Bütçe"
+    },
+    "premium": {
+      "title": "Premium'a Geç",
+      "active": "Premium Aktif",
+      "subtitleInactive": "Sınırsız abonelik, 20 fiş tarama, özel kategoriler",
+      "subtitleActive": "Tüm özellikler açık"
+    },
+    "rows": {
+      "budgetSettings": "Bütçe Ayarları",
+      "budgetSettingsSubtitle": "Aylık bütçeler, kategori limitleri ve sıfırlama günü",
+      "currency": "Para Birimi",
+      "language": "Dil",
+      "theme": "Tema",
+      "budgetResetDay": "Bütçe Sıfırlama Günü",
+      "budgetResetDayHint": "Her ayın {{day}}. günü",
+      "notifications": "Bildirimler",
+      "notificationsHint": "Bütçe ve abonelik uyarıları",
+      "biometricLock": "Biyometrik Kilit",
+      "biometricLockHint": "Uygulamayı açarken parmak izi veya yüz tanıma iste",
+      "exportData": "Verileri Dışa Aktar",
+      "importData": "Verileri İçe Aktar",
+      "deleteAll": "Tüm Verileri Sil",
+      "deleteAllHint": "İşlemler, abonelikler ve ayarlar",
+      "feedback": "Geri Bildirim",
+      "rate": "Uygulamayı Değerlendir",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları",
+      "version": "Sürüm"
+    },
+    "wipe": {
+      "title1": "Tüm Verileri Sil",
+      "message1": "Tüm işlemlerin, aboneliklerin ve bütçelerin silinecek. Bu işlem geri alınamaz.",
+      "title2": "Emin misin?",
+      "message2": "Son bir kez: tüm verilerini silmek üzeresin. Onaylıyor musun?",
+      "confirm": "Evet, sil",
+      "done": "Tüm veriler silindi"
+    },
+    "themeOptions": {
+      "light": "Açık",
+      "dark": "Koyu",
+      "system": "Sistem"
+    },
+    "languageOptions": {
+      "tr": "Türkçe",
+      "en": "English"
+    }
+  },
+  "editProfile": {
+    "title": "Profili Düzenle",
+    "name": "Ad Soyad",
+    "email": "E-posta",
+    "namePlaceholder": "Adın",
+    "emailPlaceholder": "ornek@eposta.com",
+    "saved": "Profil güncellendi"
+  },
+  "auth": {
+    "signInTitle": "Giriş Yap",
+    "registerTitle": "Hesap Oluştur",
+    "email": "E-posta",
+    "password": "Şifre",
+    "name": "Ad Soyad",
+    "signInCta": "Giriş Yap",
+    "registerCta": "Kaydol",
+    "noAccount": "Hesabın yok mu? Kaydol",
+    "hasAccount": "Zaten hesabın var mı? Giriş yap",
+    "errors": {
+      "invalidEmail": "Geçersiz e-posta",
+      "passwordTooShort": "Şifre en az 6 karakter olmalı",
+      "nameRequired": "Ad zorunlu",
+      "userNotFound": "Kullanıcı bulunamadı",
+      "wrongPassword": "Hatalı şifre",
+      "emailExists": "Bu e-posta zaten kayıtlı"
+    },
+    "signedIn": "Giriş yapıldı",
+    "signedOut": "Çıkış yapıldı",
+    "signOutConfirm": {
+      "title": "Çıkış Yap",
+      "message": "Çıkış yapmak istediğine emin misin?"
+    }
+  },
+  "export": {
+    "title": "Verileri Dışa Aktar",
+    "dateRange": "Tarih Aralığı",
+    "include": "Dahil Edilecekler",
+    "includeExpenses": "Harcamalar",
+    "includeIncomes": "Gelirler",
+    "includeSubscriptions": "Abonelikler",
+    "format": "Biçim",
+    "csv": "CSV",
+    "pdf": "PDF Rapor",
+    "pdfPremium": "Premium",
+    "exportCta": "Dışa Aktar",
+    "exporting": "Hazırlanıyor...",
+    "success": "Dosya paylaşıldı",
+    "premiumRequired": "PDF raporu sadece Premium'a özel",
+    "csvHeaders": {
+      "date": "Tarih",
+      "type": "Tür",
+      "category": "Kategori",
+      "amount": "Tutar",
+      "currency": "Para Birimi",
+      "note": "Not"
+    },
+    "types": {
+      "expense": "Gider",
+      "income": "Gelir",
+      "subscription": "Abonelik"
+    },
+    "pdfReport": {
+      "title": "CepBütçe Raporu",
+      "period": "Dönem",
+      "generated": "Oluşturma",
+      "summary": "Özet",
+      "totalIncome": "Toplam Gelir",
+      "totalExpense": "Toplam Gider",
+      "net": "Net",
+      "topCategories": "En Çok Harcanan",
+      "transactions": "İşlemler"
+    }
+  },
+  "import": {
+    "title": "Verileri İçe Aktar",
+    "placeholder": "CSV içeriğini buraya yapıştır",
+    "import": "İçe Aktar",
+    "success": "{{count}} işlem eklendi",
+    "partial": "{{ok}} eklendi, {{failed}} başarısız",
+    "failed": "İçe aktarma başarısız",
+    "emptyInput": "Önce CSV içeriğini yapıştır"
+  },
+  "budget": {
+    "title": "Bütçe Ayarları",
+    "overall": "Genel Aylık Bütçe",
+    "perCategory": "Kategori Bütçeleri",
+    "resetDay": "Sıfırlama Günü",
+    "saved": "Bütçe güncellendi"
+  },
+  "errors": {
+    "generic": "Bir şeyler ters gitti",
+    "networkOffline": "İnternet bağlantısı yok",
+    "shareFailed": "Paylaşım başarısız",
+    "pdfFailed": "PDF oluşturulamadı",
+    "fileWriteFailed": "Dosya yazılamadı",
+    "biometricUnavailable": "Biyometrik desteklenmiyor",
+    "biometricFailed": "Biyometrik doğrulama başarısız"
+  },
+  "toasts": {
+    "biometricEnabled": "Biyometrik kilit açıldı",
+    "biometricDisabled": "Biyometrik kilit kapatıldı",
+    "currencyUpdated": "Para birimi güncellendi",
+    "languageUpdated": "Dil güncellendi",
+    "themeUpdated": "Tema güncellendi",
+    "resetDayUpdated": "Sıfırlama günü güncellendi",
+    "notificationsEnabled": "Bildirimler açık",
+    "notificationsDisabled": "Bildirimler kapalı"
+  },
+  "onboarding": {
+    "skip": "Atla",
+    "next": "Sonraki",
+    "start": "Başla",
+    "page1": {
+      "title": "Harcamalarını Takip Et",
+      "body": "Gelir ve giderlerini kolayca kaydet, bütçeni kontrol altında tut."
+    },
+    "page2": {
+      "title": "Aboneliklerini Yönet",
+      "body": "Tüm aboneliklerini tek yerden takip et, yenilenmeden önce hatırlatma al."
+    },
+    "page3": {
+      "title": "Fişlerini Tara",
+      "body": "Fişlerini fotoğrafla, yapay zeka ile otomatik olarak kaydet."
+    },
+    "currency": {
+      "title": "Para Birimini Seç",
+      "body": "Varsayılan para birimini belirle, istediğin zaman değiştirebilirsin."
+    }
+  },
+  "paywall": {
+    "title": "CepBütçe Premium",
+    "subtitle": "Finansal özgürlüğün kilidini aç",
+    "comparisonHeader": {
+      "feature": "Özellik",
+      "free": "Ücretsiz",
+      "premium": "Premium"
+    },
+    "rows": {
+      "manualTracking": "Manuel harcama takibi",
+      "subscriptions": "Abonelik takibi",
+      "receiptScan": "Fiş tarama",
+      "categoryBudgets": "Kategori bütçeleri",
+      "export": "Veri dışa aktarma",
+      "charts": "Grafikler",
+      "cloudSync": "Bulut senkronizasyon",
+      "darkMode": "Koyu tema",
+      "adFree": "Reklamsız"
+    },
+    "values": {
+      "unlimited": "Sınırsız",
+      "fiveItems": "5 adet",
+      "freeScans": "3/ay (cihaz)",
+      "premiumScans": "20/ay (AI)",
+      "csvOnly": "CSV",
+      "csvPdf": "CSV + PDF",
+      "basic": "Temel",
+      "advanced": "Gelişmiş",
+      "yes": "Var",
+      "no": "Yok"
+    },
+    "plans": {
+      "monthly": "Aylık",
+      "yearly": "Yıllık",
+      "lifetime": "Ömür Boyu"
+    },
+    "periods": {
+      "perMonth": "/ay",
+      "perYear": "/yıl",
+      "once": "tek seferlik"
+    },
+    "badges": {
+      "flexible": "Esnek",
+      "popular": "EN POPÜLER — %48 tasarruf",
+      "oneTime": "Tek Seferlik"
+    },
+    "cta": "Premium'a Geç",
+    "ctaPurchasing": "İşlem yapılıyor...",
+    "trial": "7 gün ücretsiz dene",
+    "restore": "Satın alımı geri yükle",
+    "legal": "Abonelikler otomatik yenilenir. Yenilemeden 24 saat önce iptal edebilirsin. Satın alma, App Store veya Google Play hesabına bağlanır.",
+    "alreadyActive": "Premium aktif",
+    "devToggle": "Dev Toggle",
+    "errors": {
+      "initFailed": "Mağazaya bağlanılamadı",
+      "purchaseFailed": "Satın alma başarısız",
+      "restoreFailed": "Geri yükleme başarısız",
+      "noPurchases": "Önceki satın alma bulunamadı"
+    },
+    "success": "Premium'a hoş geldiniz!",
+    "restored": "Satın alımın geri yüklendi"
+  },
+  "biometric": {
+    "prompt": "CepBütçe'ye erişmek için kimliğinizi doğrulayın",
+    "cancel": "İptal",
+    "locked": "Kilitli",
+    "unlock": "Kilidi Aç"
+  },
+  "limits": {
+    "receiptTitle": "Fiş Tarama Limiti",
+    "receiptFree": "Ücretsiz planda ayda 3 fiş tarayabilirsin. Sınırsız için Premium'a geç.",
+    "receiptPremium": "Bu ay 20 taramayı kullandın. Ay sonuna kadar bekle ya da gelecek ay devam et.",
+    "cta": "Premium'a Geç",
+    "customCategoriesLocked": "Özel kategoriler Premium'a özel"
   }
 }

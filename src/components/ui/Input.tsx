@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import {
   KeyboardTypeOptions,
+  Pressable,
   Text,
   TextInput,
   View,
   ViewStyle,
+  type TextInputProps,
 } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -18,10 +20,17 @@ import { useTheme } from '../../theme';
 interface InputProps {
   prefix?: string;
   prefixIcon?: string;
+  rightIcon?: string;
+  onRightIconPress?: () => void;
   placeholder?: string;
   value: string;
   onChangeText: (text: string) => void;
   keyboardType?: KeyboardTypeOptions;
+  secureTextEntry?: boolean;
+  autoCapitalize?: TextInputProps['autoCapitalize'];
+  autoCorrect?: boolean;
+  autoComplete?: TextInputProps['autoComplete'];
+  textContentType?: TextInputProps['textContentType'];
   error?: string;
   style?: ViewStyle;
 }
@@ -29,10 +38,17 @@ interface InputProps {
 export function Input({
   prefix,
   prefixIcon,
+  rightIcon,
+  onRightIconPress,
   placeholder,
   value,
   onChangeText,
   keyboardType,
+  secureTextEntry,
+  autoCapitalize,
+  autoCorrect,
+  autoComplete,
+  textContentType,
   error,
   style,
 }: InputProps) {
@@ -90,6 +106,11 @@ export function Input({
           value={value}
           onChangeText={onChangeText}
           keyboardType={keyboardType}
+          secureTextEntry={secureTextEntry}
+          autoCapitalize={autoCapitalize}
+          autoCorrect={autoCorrect}
+          autoComplete={autoComplete}
+          textContentType={textContentType}
           onFocus={() => {
             setFocused(true);
             progress.value = withTiming(1, { duration: 150 });
@@ -99,6 +120,23 @@ export function Input({
             progress.value = withTiming(0, { duration: 150 });
           }}
         />
+        {rightIcon && (
+          <Pressable
+            onPress={onRightIconPress}
+            hitSlop={8}
+            style={{
+              width: 24,
+              height: 24,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Icon
+              name={rightIcon as any}
+              size={18}
+              color={theme.colors.text.secondary}
+            />
+          </Pressable>
+        )}
       </Animated.View>
       {error && (
         <Text

@@ -14,6 +14,7 @@ module.exports = {
         text: colors.light.text,
         bg: colors.light.bg,
         semantic: colors.light.semantic,
+        hero: colors.light.hero,
       },
       spacing,
       borderRadius: radius,

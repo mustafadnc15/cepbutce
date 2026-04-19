@@ -91,6 +91,20 @@ const migrations: Migration[] = [
       }
     },
   },
+  {
+    // Link renewals to the ledger so a subscription contributes to monthly
+    // expense totals and budgets automatically.
+    version: 2,
+    up: (db) => {
+      db.executeSync(`ALTER TABLE transactions ADD COLUMN subscriptionId TEXT;`);
+      db.executeSync(
+        `CREATE INDEX IF NOT EXISTS idx_transactions_subscription ON transactions(subscriptionId);`
+      );
+      db.executeSync(
+        `ALTER TABLE subscriptions ADD COLUMN autoCreateTransactions INTEGER NOT NULL DEFAULT 1;`
+      );
+    },
+  },
 ];
 
 function getCurrentVersion(db: DB): number {

@@ -2,5 +2,381 @@
   "app": {
     "name": "CepBütçe",
     "tagline": "Your pocket budget assistant"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "done": "Done",
+    "close": "Close",
+    "back": "Back",
+    "continue": "Continue",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "search": "Search",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "retry": "Retry",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "thisMonth": "This Month",
+    "lastMonth": "Last Month",
+    "last3Months": "Last 3 Months",
+    "thisYear": "This Year",
+    "allTime": "All Time",
+    "custom": "Custom"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "transactions": "Transactions",
+    "subscriptions": "Subscriptions",
+    "profile": "Profile"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "greeting": "Hi",
+    "monthlyBudget": "Monthly Budget",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "income": "Income",
+    "expense": "Expense",
+    "net": "Net",
+    "recentTransactions": "Recent Transactions",
+    "viewAll": "View All",
+    "upcomingRenewals": "Upcoming Renewals",
+    "topCategories": "Top Categories"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "addExpense": "Add Expense",
+    "addIncome": "Add Income",
+    "editTransaction": "Edit Transaction",
+    "amount": "Amount",
+    "category": "Category",
+    "date": "Date",
+    "note": "Note",
+    "receipt": "Receipt",
+    "addReceipt": "Add Receipt",
+    "type": "Type",
+    "expenseTab": "Expense",
+    "incomeTab": "Income",
+    "empty": {
+      "title": "No transactions yet",
+      "subtitle": "Tap + to add your first expense"
+    },
+    "deleteConfirm": {
+      "title": "Delete Transaction",
+      "message": "Are you sure you want to delete this transaction?"
+    }
+  },
+  "subscriptions": {
+    "title": "Subscriptions",
+    "addSubscription": "Add Subscription",
+    "editSubscription": "Edit Subscription",
+    "name": "Name",
+    "amount": "Amount",
+    "billingCycle": "Billing Cycle",
+    "nextRenewal": "Next Renewal",
+    "category": "Category",
+    "color": "Color",
+    "reminder": "Reminder",
+    "autoCreate": "Auto-create Transaction",
+    "autoCreateHint": "Add an expense automatically on renewal day",
+    "active": "Active",
+    "inactive": "Inactive",
+    "monthly": "Monthly",
+    "weekly": "Weekly",
+    "quarterly": "Quarterly",
+    "yearly": "Yearly",
+    "limitReached": {
+      "title": "Subscription Limit",
+      "message": "Free plan allows up to 5 active subscriptions. Upgrade to Premium for unlimited.",
+      "cta": "Go Premium"
+    },
+    "empty": {
+      "title": "No subscriptions yet",
+      "subtitle": "Tap + to add your first subscription"
+    }
+  },
+  "categories": {
+    "cat_food": "Food & Drinks",
+    "cat_transport": "Transport",
+    "cat_shopping": "Shopping",
+    "cat_bills": "Bills",
+    "cat_health": "Health",
+    "cat_entertainment": "Entertainment",
+    "cat_education": "Education",
+    "cat_housing": "Housing & Rent",
+    "cat_other_expense": "Other",
+    "cat_salary": "Salary",
+    "cat_freelance": "Freelance",
+    "cat_other_income": "Other Income"
+  },
+  "profile": {
+    "title": "Profile",
+    "loggedOut": "Not signed in",
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "editProfile": "Edit Profile",
+    "sections": {
+      "account": "Account",
+      "preferences": "Preferences",
+      "data": "Data",
+      "about": "About",
+      "budget": "Budget"
+    },
+    "premium": {
+      "title": "Go Premium",
+      "active": "Premium Active",
+      "subtitleInactive": "Unlimited subscriptions, 20 receipt scans, custom categories",
+      "subtitleActive": "All features unlocked"
+    },
+    "rows": {
+      "budgetSettings": "Budget Settings",
+      "budgetSettingsSubtitle": "Monthly budgets, category limits and reset day",
+      "currency": "Currency",
+      "language": "Language",
+      "theme": "Theme",
+      "budgetResetDay": "Budget Reset Day",
+      "budgetResetDayHint": "The {{day}} of each month",
+      "notifications": "Notifications",
+      "notificationsHint": "Budget and subscription alerts",
+      "biometricLock": "Biometric Lock",
+      "biometricLockHint": "Require Face ID / Touch ID to open the app",
+      "exportData": "Export Data",
+      "importData": "Import Data",
+      "deleteAll": "Delete All Data",
+      "deleteAllHint": "Transactions, subscriptions and settings",
+      "feedback": "Feedback",
+      "rate": "Rate the App",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "version": "Version"
+    },
+    "wipe": {
+      "title1": "Delete All Data",
+      "message1": "All transactions, subscriptions and budgets will be erased. This cannot be undone.",
+      "title2": "Are you sure?",
+      "message2": "Last chance: you're about to wipe all your data. Confirm?",
+      "confirm": "Yes, delete",
+      "done": "All data deleted"
+    },
+    "themeOptions": {
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "languageOptions": {
+      "tr": "Türkçe",
+      "en": "English"
+    }
+  },
+  "editProfile": {
+    "title": "Edit Profile",
+    "name": "Full Name",
+    "email": "Email",
+    "namePlaceholder": "Your name",
+    "emailPlaceholder": "example@email.com",
+    "saved": "Profile updated"
+  },
+  "auth": {
+    "signInTitle": "Sign In",
+    "registerTitle": "Create Account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Full Name",
+    "signInCta": "Sign In",
+    "registerCta": "Register",
+    "noAccount": "No account? Register",
+    "hasAccount": "Already have an account? Sign in",
+    "errors": {
+      "invalidEmail": "Invalid email",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "nameRequired": "Name required",
+      "userNotFound": "User not found",
+      "wrongPassword": "Wrong password",
+      "emailExists": "This email is already registered"
+    },
+    "signedIn": "Signed in",
+    "signedOut": "Signed out",
+    "signOutConfirm": {
+      "title": "Sign Out",
+      "message": "Are you sure you want to sign out?"
+    }
+  },
+  "export": {
+    "title": "Export Data",
+    "dateRange": "Date Range",
+    "include": "Include",
+    "includeExpenses": "Expenses",
+    "includeIncomes": "Incomes",
+    "includeSubscriptions": "Subscriptions",
+    "format": "Format",
+    "csv": "CSV",
+    "pdf": "PDF Report",
+    "pdfPremium": "Premium",
+    "exportCta": "Export",
+    "exporting": "Preparing...",
+    "success": "File shared",
+    "premiumRequired": "PDF reports are Premium only",
+    "csvHeaders": {
+      "date": "Date",
+      "type": "Type",
+      "category": "Category",
+      "amount": "Amount",
+      "currency": "Currency",
+      "note": "Note"
+    },
+    "types": {
+      "expense": "Expense",
+      "income": "Income",
+      "subscription": "Subscription"
+    },
+    "pdfReport": {
+      "title": "CepBütçe Report",
+      "period": "Period",
+      "generated": "Generated",
+      "summary": "Summary",
+      "totalIncome": "Total Income",
+      "totalExpense": "Total Expense",
+      "net": "Net",
+      "topCategories": "Top Categories",
+      "transactions": "Transactions"
+    }
+  },
+  "import": {
+    "title": "Import Data",
+    "placeholder": "Paste your CSV content here",
+    "import": "Import",
+    "success": "{{count}} transactions added",
+    "partial": "{{ok}} added, {{failed}} failed",
+    "failed": "Import failed",
+    "emptyInput": "Paste CSV content first"
+  },
+  "budget": {
+    "title": "Budget Settings",
+    "overall": "Overall Monthly Budget",
+    "perCategory": "Category Budgets",
+    "resetDay": "Reset Day",
+    "saved": "Budget updated"
+  },
+  "errors": {
+    "generic": "Something went wrong",
+    "networkOffline": "No internet connection",
+    "shareFailed": "Share failed",
+    "pdfFailed": "Could not generate PDF",
+    "fileWriteFailed": "Could not write file",
+    "biometricUnavailable": "Biometrics not supported",
+    "biometricFailed": "Biometric authentication failed"
+  },
+  "toasts": {
+    "biometricEnabled": "Biometric lock enabled",
+    "biometricDisabled": "Biometric lock disabled",
+    "currencyUpdated": "Currency updated",
+    "languageUpdated": "Language updated",
+    "themeUpdated": "Theme updated",
+    "resetDayUpdated": "Reset day updated",
+    "notificationsEnabled": "Notifications on",
+    "notificationsDisabled": "Notifications off"
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "next": "Next",
+    "start": "Get Started",
+    "page1": {
+      "title": "Track Your Spending",
+      "body": "Record income and expenses easily, and keep your budget under control."
+    },
+    "page2": {
+      "title": "Manage Subscriptions",
+      "body": "Track all your subscriptions in one place and get reminders before renewals."
+    },
+    "page3": {
+      "title": "Scan Your Receipts",
+      "body": "Snap a photo and let AI capture the details automatically."
+    },
+    "currency": {
+      "title": "Pick Your Currency",
+      "body": "Set your default currency — you can change it anytime."
+    }
+  },
+  "paywall": {
+    "title": "CepBütçe Premium",
+    "subtitle": "Unlock your financial freedom",
+    "comparisonHeader": {
+      "feature": "Feature",
+      "free": "Free",
+      "premium": "Premium"
+    },
+    "rows": {
+      "manualTracking": "Manual expense tracking",
+      "subscriptions": "Subscription tracking",
+      "receiptScan": "Receipt scanning",
+      "categoryBudgets": "Category budgets",
+      "export": "Data export",
+      "charts": "Charts",
+      "cloudSync": "Cloud sync",
+      "darkMode": "Dark mode",
+      "adFree": "Ad-free"
+    },
+    "values": {
+      "unlimited": "Unlimited",
+      "fiveItems": "5 items",
+      "freeScans": "3/mo (device)",
+      "premiumScans": "20/mo (AI)",
+      "csvOnly": "CSV",
+      "csvPdf": "CSV + PDF",
+      "basic": "Basic",
+      "advanced": "Advanced",
+      "yes": "Yes",
+      "no": "No"
+    },
+    "plans": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "lifetime": "Lifetime"
+    },
+    "periods": {
+      "perMonth": "/mo",
+      "perYear": "/yr",
+      "once": "one-time"
+    },
+    "badges": {
+      "flexible": "Flexible",
+      "popular": "MOST POPULAR — 48% off",
+      "oneTime": "One-time"
+    },
+    "cta": "Go Premium",
+    "ctaPurchasing": "Processing...",
+    "trial": "7-day free trial",
+    "restore": "Restore purchases",
+    "legal": "Subscriptions auto-renew. Cancel 24h before renewal. Purchases are tied to your App Store or Google Play account.",
+    "alreadyActive": "Premium active",
+    "devToggle": "Dev Toggle",
+    "errors": {
+      "initFailed": "Could not connect to store",
+      "purchaseFailed": "Purchase failed",
+      "restoreFailed": "Restore failed",
+      "noPurchases": "No previous purchases found"
+    },
+    "success": "Welcome to Premium!",
+    "restored": "Your purchase was restored"
+  },
+  "biometric": {
+    "prompt": "Authenticate to access CepBütçe",
+    "cancel": "Cancel",
+    "locked": "Locked",
+    "unlock": "Unlock"
+  },
+  "limits": {
+    "receiptTitle": "Receipt Scan Limit",
+    "receiptFree": "The free plan allows 3 scans per month. Upgrade to Premium for unlimited.",
+    "receiptPremium": "You've used all 20 scans this month. Wait for next month or skip the limit.",
+    "cta": "Go Premium",
+    "customCategoriesLocked": "Custom categories are Premium only"
   }
 }

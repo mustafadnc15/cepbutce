@@ -7,5 +7,7 @@ export const radius = tokens.radius as {
   card: number;
   lg: number;
   header: number;
+  hero: number;
+  group: number;
   full: number;
 };

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import dayjs from 'dayjs';
 import { Transaction, TransactionType } from '../types';
 import { getDB } from '../db/connection';
 import { generateId } from '../utils/id';
@@ -18,6 +19,9 @@ interface TransactionState {
   getByType: (type: TransactionType) => Transaction[];
   getRecentN: (n: number) => Transaction[];
   getTotalByType: (type: TransactionType) => number;
+  /** Array of daily expense totals for the month containing `date`. Index 0
+   *  is day 1; length = daysInMonth. Consumed by the Focus hero rhythm bars. */
+  dailySpendForMonth: (date: Date) => number[];
 }
 
 export const useTransactionStore = create<TransactionState>((set, get) => ({
@@ -30,7 +34,12 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     try {
       const db = getDB();
       const result = db.executeSync(`SELECT * FROM transactions ORDER BY date DESC;`);
-      const rows = (result.rows ?? []) as unknown as Transaction[];
+      // Raw DB rows have subscriptionId as string or null; pre-migration rows
+      // may lack the column entirely, so normalize to null.
+      const rows = (result.rows ?? []).map((r) => ({
+        ...r,
+        subscriptionId: (r.subscriptionId as string | null | undefined) ?? null,
+      })) as unknown as Transaction[];
       set({ transactions: rows, loading: false });
     } catch (e) {
       set({ loading: false, error: e instanceof Error ? e.message : String(e) });
@@ -47,9 +56,9 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     };
     const db = getDB();
     db.executeSync(
-      `INSERT INTO transactions (id, amount, currency, type, categoryId, note, date, receiptUri, receiptOcrData, createdAt, updatedAt)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
-      [tx.id, tx.amount, tx.currency, tx.type, tx.categoryId, tx.note, tx.date, tx.receiptUri, tx.receiptOcrData, tx.createdAt, tx.updatedAt]
+      `INSERT INTO transactions (id, amount, currency, type, categoryId, note, date, receiptUri, receiptOcrData, subscriptionId, createdAt, updatedAt)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`,
+      [tx.id, tx.amount, tx.currency, tx.type, tx.categoryId, tx.note, tx.date, tx.receiptUri, tx.receiptOcrData, tx.subscriptionId, tx.createdAt, tx.updatedAt]
     );
     set((state) => ({ transactions: [tx, ...state.transactions] }));
     return tx;
@@ -61,8 +70,8 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     const updated: Transaction = { ...existing, ...patch, updatedAt: new Date().toISOString() };
     const db = getDB();
     db.executeSync(
-      `UPDATE transactions SET amount=?, currency=?, type=?, categoryId=?, note=?, date=?, receiptUri=?, receiptOcrData=?, updatedAt=? WHERE id=?;`,
-      [updated.amount, updated.currency, updated.type, updated.categoryId, updated.note, updated.date, updated.receiptUri, updated.receiptOcrData, updated.updatedAt, id]
+      `UPDATE transactions SET amount=?, currency=?, type=?, categoryId=?, note=?, date=?, receiptUri=?, receiptOcrData=?, subscriptionId=?, updatedAt=? WHERE id=?;`,
+      [updated.amount, updated.currency, updated.type, updated.categoryId, updated.note, updated.date, updated.receiptUri, updated.receiptOcrData, updated.subscriptionId, updated.updatedAt, id]
     );
     set((state) => ({
       transactions: state.transactions.map((t) => (t.id === id ? updated : t)),
@@ -91,4 +100,19 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     get()
       .transactions.filter((t) => t.type === type)
       .reduce((sum, t) => sum + t.amount, 0),
+
+  dailySpendForMonth: (date) => {
+    const ref = dayjs(date);
+    const daysInMonth = ref.daysInMonth();
+    const out = new Array<number>(daysInMonth).fill(0);
+    const startIso = ref.startOf('month').toISOString();
+    const endIso = ref.endOf('month').toISOString();
+    for (const t of get().transactions) {
+      if (t.type !== 'expense') continue;
+      if (t.date < startIso || t.date > endIso) continue;
+      const idx = dayjs(t.date).date() - 1;
+      if (idx >= 0 && idx < daysInMonth) out[idx] += t.amount;
+    }
+    return out;
+  },
 }));

@@ -23,3 +23,13 @@ export function formatRelativeDate(iso: string, locale: Locale): string {
 export function formatMonthName(iso: string, locale: Locale): string {
   return dayjs(iso).locale(locale).format('MMMM YYYY');
 }
+
+export function formatLongDate(iso: string, locale: Locale): string {
+  const target = dayjs(iso).startOf('day');
+  const today = dayjs().startOf('day');
+  const diffDays = today.diff(target, 'day');
+  const full = dayjs(iso).locale(locale).format('D MMMM YYYY');
+  if (diffDays === 0) return `${labels[locale].today}, ${full}`;
+  if (diffDays === 1) return `${labels[locale].yesterday}, ${full}`;
+  return full;
+}
